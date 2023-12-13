@@ -1,0 +1,99 @@
+        /*Calculating the time to charge a car pseudocode
+
+          Step 1: Declaring all the constants, these will not change value.
+          CURRENT_123 = 123;
+          VOLTAGE_456 = 456;
+          CAPACITY_789 = 789;
+
+          Step 2: Declaring variables for charging power, these values will change when the program is run.
+          chargPower1 = 0;
+
+          Step 3: Declaring variables for charging time, these values will change when the program is run.
+          chargTime1 = 0.0;
+
+          Step 4: Managing the number of decimals when using floating numbers.
+          int nrOfDeci = 2;
+          double scale = 0;
+          scale = Math.pow (10, nrOfDeci);
+
+          Step 5: Calculating the chargingpower by multiplying the current 
+          with voltage and then divide it by 1000.
+          chargPower1 = (CURRENT_123 * VOLTAGE_456)/ 1000;
+          
+          Step 6: Calculating the charging time by dividing capacity with chargingpower.
+          chargeTime1 = CAPACITY_789/chargPower1;
+
+          Step 7: Printing out the table by using the printline statement for a normal comment and then using 
+          the printf statement with formatted data.
+          output("Info about battery charging time");
+          output("Current, Voltage, Charging power, Charging time");
+        */
+class Main {
+
+      
+        //declaring all the constants that will not change values
+        final static double VOLTAGE_400 = 400;
+        final static double VOLTAGE_230 = 230;
+        final static double CURRENT_10 = 10;
+        final static double CURRENT_16 = 16;
+        final static double CURRENT_32 = 32;
+        final static double CAPACITY = 35.8;
+
+
+        
+        public static void main(String[] args) {
+      
+        //Declaring variables for charging power that will change values
+        double chargingPower1 = 0;
+        double chargingPower2 = 0;
+        double chargingPower3 = 0;
+        double chargingPower4 = 0;
+        double chargingPower5 = 0;
+          
+        //Declaring variables for charging time that will change values
+        double chargingTime1 = 0.0;
+        double chargingTime2 = 0.0;
+        double chargingTime3 = 0.0;
+        double chargingTime4 = 0.0;
+        double chargingTime5 = 0.0;
+      
+        //Rounding the scale
+        int noOfDecimals = 2; 
+        double scale = 0; 
+        scale = Math.pow (10, noOfDecimals); 
+
+        //the calculation for chargingpower 
+        chargingPower1 = (10.0 * 230.0) / 1000;
+        chargingPower2 = (16.0 * 230) / 1000;
+        chargingPower3 = (10.0 * VOLTAGE_400 * Math.sqrt(3)) / 1000;
+        chargingPower3 = Math.round (chargingPower3 * scale) / scale;
+        chargingPower4 = (16.0 * VOLTAGE_400 * Math.sqrt(3)) / 1000;
+        chargingPower4 = Math.round (chargingPower4 * scale) / scale;
+        chargingPower5 = (32.0 * VOLTAGE_400 * Math.sqrt(3)) / 1000;
+        chargingPower5 = Math.round (chargingPower5 * scale) / scale;
+
+        //the calculation for the charging time
+        chargingTime1 = CAPACITY / chargingPower1;
+        chargingTime2 = CAPACITY / chargingPower2;
+        chargingTime3 = CAPACITY / chargingPower3;
+        chargingTime4 = CAPACITY / chargingPower4;
+        chargingTime5 = CAPACITY / chargingPower5;
+          
+        //printing out the info table
+        //the first line is with println since its just a line
+        System.out.println("Battery: 35.8 (kWh)");  
+        //the rest of the table is with printf since it then becomes the table  
+        System.out.printf("%-15s %-15s %-15s %-15s %n", "Current(A)", "Voltage(V)", "Charging power(kW)", 
+        "Charging time(h)");
+        System.out.printf("%-15.1f %-15.1f %-15.2f %-15.2f %n", CURRENT_10, VOLTAGE_230, chargingPower1, 
+        chargingTime1);
+        System.out.printf("%-15.1f %-15.1f %-15.2f %-15.2f %n", CURRENT_16, VOLTAGE_230, chargingPower2,     
+        chargingTime2);
+        System.out.printf("%-15.1f %-15.1f %-15.2f %-15.2f %n", CURRENT_10, VOLTAGE_400, chargingPower3, 
+        chargingTime3);
+        System.out.printf("%-15.1f %-15.1f %-15.2f %-15.2f %n", CURRENT_16, VOLTAGE_400, chargingPower4, 
+        chargingTime4);
+        System.out.printf("%-15.1f %-15.1f %-15.2f %-15.2f %n", CURRENT_32, VOLTAGE_400, chargingPower5, 
+        chargingTime5);
+  }
+}
